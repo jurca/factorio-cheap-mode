@@ -8,6 +8,8 @@ recipes['explosive-cannon-shell'].normal.ingredients[2][2] = 1
 
 -- https://github.com/wube/factorio-data/blob/master/base/prototypes/recipe/capsule.lua
 
+-- https://github.com/wube/factorio-data/blob/master/base/prototypes/recipe/circuit-network.lua
+
 -- https://github.com/wube/factorio-data/blob/master/base/prototypes/recipe/demo-furnace-recipe.lua
 recipes['steel-plate'].normal.ingredients[1][2] = 3
 
@@ -19,8 +21,8 @@ recipes['electronic-circuit'].normal.result_count = 2
 recipes['electric-mining-drill'].normal.ingredients[1][2] = 1
 recipes['electric-mining-drill'].normal.ingredients[2][2] = 3
 recipes['electric-mining-drill'].normal.ingredients[3][2] = 5
-recipes['burner-mining-drill'].normal.ingredients[1][2] = 2
-recipes['burner-mining-drill'].normal.ingredients[3][2] = 2
+recipes['burner-mining-drill'].normal.ingredients[1][2] = 1
+recipes['burner-mining-drill'].normal.ingredients[3][2] = 1
 recipes['pipe'].normal.result_count = 2
 recipes['submachine-gun'].normal.ingredients[1][2] = 5
 recipes['submachine-gun'].normal.ingredients[2][2] = 1
