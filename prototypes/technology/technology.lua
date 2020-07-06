@@ -1,9 +1,9 @@
-technologies = data.raw.technology
+local technologies = data.raw.technology
 
-for technology_name, technology in pairs(technologies) do
-  if( technology.unit ~= nil and technology.unit.count ~= nil )
+for _,technology in pairs(technologies) do
+  if( technology.unit and technology.unit.count ~= nil )
   then
-    technology.unit.count = math.floor(technology.unit.count / 4)
+    technology.unit.count = math.max(math.floor(technology.unit.count / 4), 1)
   end
 end
 

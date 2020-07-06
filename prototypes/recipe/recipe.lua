@@ -1,4 +1,5 @@
-recipes = data.raw.recipe
+local recipes = data.raw.recipe
+
 -- expensive
 -- https://github.com/wube/factorio-data/blob/master/base/prototypes/recipe/ammo.lua
 recipes['cannon-shell'].normal.ingredients[1][2] = 1
