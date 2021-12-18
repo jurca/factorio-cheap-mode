@@ -1,36 +1,62 @@
 local recipes = data.raw.recipe
 
 -- https://github.com/wube/factorio-data/blob/master/base/prototypes/recipe.lua
-recipes['steam-engine'].normal.ingredients[1][2] = 6
-recipes['steam-engine'].normal.ingredients[3][2] = 2
-recipes['iron-gear-wheel'].normal.ingredients[1][2] = 1
-recipes['electronic-circuit'].normal.result_count = 2
-recipes['electric-mining-drill'].normal.ingredients[1][2] = 1
-recipes['electric-mining-drill'].normal.ingredients[2][2] = 3
-recipes['electric-mining-drill'].normal.ingredients[3][2] = 5
-recipes['burner-mining-drill'].normal.ingredients[1][2] = 1
-recipes['burner-mining-drill'].normal.ingredients[3][2] = 1
-recipes['pipe'].normal.result_count = 2
-recipes['submachine-gun'].normal.ingredients[1][2] = 5
-recipes['submachine-gun'].normal.ingredients[2][2] = 1
-recipes['submachine-gun'].normal.ingredients[3][2] = 3
-recipes['assembling-machine-2'].normal.ingredients[1][2] = 1
-recipes['assembling-machine-2'].normal.ingredients[2][2] = 1
-recipes['assembling-machine-2'].normal.ingredients[3][2] = 3
-recipes['steel-plate'].normal.ingredients[1][2] = 3
-recipes['steel-plate'].normal.result_count = 3
-recipes['cannon-shell'].normal.ingredients[1][2] = 1
-recipes['cannon-shell'].normal.ingredients[2][2] = 1
-recipes['explosive-cannon-shell'].normal.ingredients[1][2] = 1
-recipes['explosive-cannon-shell'].normal.ingredients[2][2] = 1
-recipes['express-transport-belt'].normal.ingredients[1][2] = 5
-recipes['tank'].normal.ingredients[1][2] = 16
-recipes['tank'].normal.ingredients[2][2] = 25
-recipes['tank'].normal.ingredients[3][2] = 8
-recipes['tank'].normal.ingredients[4][2] = 5
-recipes['advanced-circuit'].normal.ingredients[2][2] = 1
-recipes['advanced-circuit'].normal.ingredients[3][2] = 2
-recipes['processing-unit'].normal.ingredients[3].amount = 3
-recipes['explosives'].normal.result_count = 4
-recipes['battery'].normal.ingredients[1].amount = 10
-recipes['low-density-structure'].normal.ingredients[3][2] = 1
+set_ingredient_amount('steam-engine', 1, 6)
+set_ingredient_amount('steam-engine', 3, 2)
+set_ingredient_amount('iron-gear-wheel', 1, 1)
+set_result_count('electronic-circuit', 2)
+set_ingredient_amount('electric-mining-drill', 1, 1)
+set_ingredient_amount('electric-mining-drill', 2, 3)
+set_ingredient_amount('electric-mining-drill', 3, 5)
+set_ingredient_amount('burner-mining-drill', 1, 1)
+set_ingredient_amount('burner-mining-drill', 3, 1)
+set_result_count('pipe', 2)
+set_ingredient_amount('submachine-gun', 1, 5)
+set_ingredient_amount('submachine-gun', 2, 1)
+set_ingredient_amount('submachine-gun', 3, 3)
+set_ingredient_amount('assembling-machine-2', 1, 1)
+set_ingredient_amount('assembling-machine-2', 2, 1)
+set_ingredient_amount('assembling-machine-2', 3, 3)
+set_ingredient_amount('steel-plate', 1, 3)
+set_result_count('steel-plate', 3)
+set_ingredient_amount('cannon-shell', 1, 1)
+set_ingredient_amount('cannon-shell', 2, 1)
+set_ingredient_amount('explosive-cannon-shell', 1, 1)
+set_ingredient_amount('explosive-cannon-shell', 2, 1)
+set_ingredient_amount('express-transport-belt', 1, 5)
+set_ingredient_amount('tank', 1, 16)
+set_ingredient_amount('tank', 2, 25)
+set_ingredient_amount('tank', 3, 8)
+set_ingredient_amount('tank', 4, 5)
+set_ingredient_amount('advanced-circuit', 2, 1)
+set_ingredient_amount('advanced-circuit', 3, 2)
+set_ingredient_amount('processing-unit', 3, 3)
+set_result_count('explosives', 4)
+set_ingredient_amount('battery', 1, 10)
+set_ingredient_amount('low-density-structure', 3, 1)
+
+local function set_ingredient_amount(recipe_name, ingredient_index, amount)
+  local recipe = recipes[recipe_name]
+  if( recipe and recipe.normal and recipe.normal.ingredients )
+  then
+    local ingredient = recipe.normal.ingredients[ingredient_index]
+    if( ingredient )
+    then
+      if( ingredient.amount )
+      then
+        ingredient.amount = amount
+      elseif( ingredient[2] )
+      then
+        ingredient[2] = amount
+      end
+    end
+  end
+end
+
+local function set_result_count(recipe_name, result_count)
+  local recipe = recipes[recipe_name]
+  if( recipe and recipe.normal and recipe.normal.result_count )
+  then
+    recipe.normal.result_count = result_count
+  end
+end
