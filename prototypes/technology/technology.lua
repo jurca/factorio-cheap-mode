@@ -1,9 +1,11 @@
 local technologies = data.raw.technology
 
+local cost_factor =  0.25
+
 for _,technology in pairs(technologies) do
   if( technology.unit and technology.unit.count ~= nil )
   then
-    technology.unit.count = math.max(math.floor(technology.unit.count / 4), 1)
+    technology.unit.count = math.max(math.floor(technology.unit.count * cost_factor), 1)
   end
 end
 
