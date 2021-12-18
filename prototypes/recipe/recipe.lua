@@ -1,5 +1,31 @@
 local recipes = data.raw.recipe
 
+local function set_ingredient_amount(recipe_name, ingredient_index, amount)
+  local recipe = recipes[recipe_name]
+  if( recipe and recipe.normal and recipe.normal.ingredients )
+  then
+    local ingredient = recipe.normal.ingredients[ingredient_index]
+    if( ingredient )
+    then
+      if( ingredient.amount )
+      then
+        ingredient.amount = amount
+      elseif( ingredient[2] )
+      then
+        ingredient[2] = amount
+      end
+    end
+  end
+end
+
+local function set_result_count(recipe_name, result_count)
+  local recipe = recipes[recipe_name]
+  if( recipe and recipe.normal and recipe.normal.result_count )
+  then
+    recipe.normal.result_count = result_count
+  end
+end
+
 -- https://github.com/wube/factorio-data/blob/master/base/prototypes/recipe.lua
 set_ingredient_amount('steam-engine', 1, 6)
 set_ingredient_amount('steam-engine', 3, 2)
@@ -34,29 +60,3 @@ set_ingredient_amount('processing-unit', 3, 3)
 set_result_count('explosives', 4)
 set_ingredient_amount('battery', 1, 10)
 set_ingredient_amount('low-density-structure', 3, 1)
-
-local function set_ingredient_amount(recipe_name, ingredient_index, amount)
-  local recipe = recipes[recipe_name]
-  if( recipe and recipe.normal and recipe.normal.ingredients )
-  then
-    local ingredient = recipe.normal.ingredients[ingredient_index]
-    if( ingredient )
-    then
-      if( ingredient.amount )
-      then
-        ingredient.amount = amount
-      elseif( ingredient[2] )
-      then
-        ingredient[2] = amount
-      end
-    end
-  end
-end
-
-local function set_result_count(recipe_name, result_count)
-  local recipe = recipes[recipe_name]
-  if( recipe and recipe.normal and recipe.normal.result_count )
-  then
-    recipe.normal.result_count = result_count
-  end
-end

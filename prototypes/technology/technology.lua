@@ -2,6 +2,14 @@ local technologies = data.raw.technology
 
 local cost_factor =  0.25
 
+local function set_technology_formula (name, formula)
+  local technology = technologies[name]
+  if( technology and technology.unit and technology.unit.count_formula )
+  then
+    technology.unit.count_formula = formula
+  end
+end
+
 for _,technology in pairs(technologies) do
   if( technology.unit and technology.unit.count ~= nil )
   then
@@ -21,12 +29,4 @@ then
   set_technology_formula('follower-robot-count-7', '25(L-6)+225')
   set_technology_formula('worker-robots-speed-6', '2^(L-6)*250')
   set_technology_formula('mining-productivity-4', '625*(L - 3)')
-end
-
-local function set_technology_formula (name, formula)
-  local technology = technologies[name]
-  if( technology and technology.unit and technology.unit.count_formula )
-  then
-    technology.unit.count_formula = formula
-  end
 end
