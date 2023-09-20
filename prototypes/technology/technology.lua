@@ -1,6 +1,6 @@
 local technologies = data.raw.technology
 
-local cost_factor =  0.25
+local cost_factor =  settings.startup["CheapMode-research-cost-factor"].value
 
 local function set_technology_formula (name, formula)
   local technology = technologies[name]
