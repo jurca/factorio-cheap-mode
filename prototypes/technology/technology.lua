@@ -23,10 +23,10 @@ then
   set_technology_formula('physical-projectile-damage-7', '2^(L-7)*250')
   set_technology_formula('stronger-explosives-7', '2^(L-7)*250')
   set_technology_formula('refined-flammables-7', '2^(L-7)*250')
-  set_technology_formula('energy-weapons-damage-7', '2^(L-7)*250')
+  set_technology_formula('laser-weapons-damage-7', '2^(L-7)*250')
   set_technology_formula('artillery-shell-range-1', '2^L*250')
   set_technology_formula('artillery-shell-speed-1', '250+3^(L-1)*250')
-  set_technology_formula('follower-robot-count-7', '25(L-6)+225')
+  set_technology_formula('follower-robot-count-5', '250*(L-4)')
   set_technology_formula('worker-robots-speed-6', '2^(L-6)*250')
   set_technology_formula('mining-productivity-4', '625*(L - 3)')
 end

@@ -2,9 +2,9 @@ local recipes = data.raw.recipe
 
 local function set_ingredient_amount(recipe_name, ingredient_index, amount)
   local recipe = recipes[recipe_name]
-  if( recipe and recipe.normal and recipe.normal.ingredients )
+  if( recipe and recipe.ingredients )
   then
-    local ingredient = recipe.normal.ingredients[ingredient_index]
+    local ingredient = recipe.ingredients[ingredient_index]
     if( ingredient )
     then
       if( ingredient.amount )
@@ -22,7 +22,7 @@ local function set_result_count(recipe_name, result_count)
   local recipe = recipes[recipe_name]
   if( recipe and recipe.normal )
   then
-    recipe.normal.result_count = result_count
+    recipe.result_count = result_count
   end
 end
 
