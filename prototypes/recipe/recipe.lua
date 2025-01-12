@@ -20,9 +20,9 @@ end
 
 local function set_result_count(recipe_name, result_count)
   local recipe = recipes[recipe_name]
-  if( recipe and recipe.normal )
+  if( recipe and recipe.results and recipe.results[1] )
   then
-    recipe.result_count = result_count
+    recipe.results[1].amount = result_count
   end
 end
 
